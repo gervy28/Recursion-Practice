@@ -1,0 +1,63 @@
+<html>
+  <ul id="simple">
+
+  </ul>
+
+  <H1>this is sort of recursion</H1>
+  <p>
+    This is sort of recursion, but a better example of recursion is coming up next. Essentially, a fantastic
+    example of recursion is when the function call relies on the value of the previous function call. Esstentally,
+    this current function call cannot complete because it relies on the result of the function that came before it.
+  </p>
+
+  <ul id="recursive">
+
+  </ul>
+</html>
+
+<script>
+  let exampleElement = document.getElementById( "simple" );
+  let recursionExample = document.getElementById( "recursive" );
+
+  recursive(1);
+
+  for(let i = 1; i < 6; i++){
+    let node = document.createElement('li');
+    let appender = `${ i } uninformed interviewee`
+
+    node.appendChild( document.createTextNode( appender ) );
+    
+    exampleElement.appendChild( node );
+  }
+
+  function recursive( n ) {
+    if( n == 4 ) {
+
+      let finalNode = document.createElement('li');
+      let finalAppender = `${ n } is that Nate is passionate about this stuff.
+                                I wrote this code at 11:04pm after searching for a
+                                breadboard, watching computerphile, and reading a book
+                                titled THE SELF TAUGHT COMPUTER SCIENTIST `
+
+      finalNode.appendChild( document.createTextNode( finalAppender ) );
+    
+      recursionExample.appendChild( finalNode );
+
+      return;
+    }
+
+    let recursiveNode = document.createElement('li');
+    let recursiveAppender = `${ n } years I've been a hobbyist coder`
+
+    recursiveNode.appendChild( document.createTextNode( recursiveAppender ) );
+    
+    recursionExample.appendChild( recursiveNode );
+
+    n = n + 1;
+
+    recursive(n);
+  
+  }
+
+
+</script>

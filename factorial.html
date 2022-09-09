@@ -1,0 +1,49 @@
+<html>
+  <h1>Factorial Example with steps</h1>
+  <button id="btn"> Make A Factorial of 5</button>
+  <div id="answer-node"> </div>
+  <input id="enter-node"></input>
+  <ul id="factorial">
+  </ul>
+
+</html>
+<script>
+  let factorialOutput = document.getElementById("factorial");
+  let input = document.getElementById( "enter-node" );
+  let btn = document.getElementById('btn');
+
+
+  btn.addEventListener('click', () => {
+    let checkNumber = input.value;
+    
+    if( !checkNumber ){
+      checkNumber = 5;
+      input.value = "bad input, dummy";
+    } 
+
+    let answer = document.createTextNode( findFactorial(checkNumber) );
+    document.getElementById("answer-node").appendChild( answer );
+  });
+
+
+
+function findFactorial( n ) {
+  if ( n == 0 ) {
+    return 1;
+  } 
+
+  let recursiveNode = document.createElement('li');
+  let recursiveAppender = `For ${ n } years I've been writing simple code`
+
+  recursiveNode.appendChild( document.createTextNode( recursiveAppender ) );
+  
+  factorialOutput.appendChild( recursiveNode );
+
+
+  return n * findFactorial(n-1);
+
+}
+
+
+
+</script>
